@@ -11,6 +11,8 @@
 <!--    </alternatives>-->
 
     <decorators>
-
+        <class>Lab2_Decorator.Decorator.PizzaWithCheese</class>
+        <class>Lab2_Decorator.Decorator.PizzaWithPepper</class>
+        <class>Lab2_Decorator.Decorator.PizzaWithMushrooms</class>
     </decorators>
 </beans>
