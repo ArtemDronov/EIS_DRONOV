@@ -2,38 +2,38 @@
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                      xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping validation-mapping-1.1.xsd"
                      version="1.1">
-    <bean class="Lab4_Validation.Model.XmlValidatedTrain" ignore-annotations="false">
+    <bean class="Lab4_Validation.Model.XmlValidatedUniversity" ignore-annotations="false">
         <field name="name">
             <constraint annotation="jakarta.validation.constraints.NotNull">
-                <message>Название не должно быть пустым</message>
+                <message>Название университета не должно быть пустым</message>
             </constraint>
             <constraint annotation="jakarta.validation.constraints.Pattern">
-                <message>Название должно содержать только буквы и пробелы</message>
-                <element name="regexp">^[A-Za-zА-Яа-яЁё\\s]+$</element>
+                <message>Название университета должно содержать только буквы и пробелы</message>
+                <element name="regexp">^[A-Za-zА-Яа-яЁё\s]+$</element>
             </constraint>
         </field>
-        <field name="trainNumber">
+        <field name="address">
             <constraint annotation="jakarta.validation.constraints.NotNull">
-                <message>Номер поезда не должен быть пустым</message>
-            </constraint>
-            <constraint annotation="jakarta.validation.constraints.Pattern">
-                <message>Номер поезда должен состоять из 4 цифр</message>
-                <element name="regexp">^\d{4}$</element>
+                <message>Адрес университета не должен быть пустым</message>
             </constraint>
         </field>
-        <field name="route">
-            <constraint annotation="jakarta.validation.constraints.NotNull">
-                <message>Маршрут не должен быть пустым</message>
-            </constraint>
-        </field>
-        <field name="numberOfCars">
+        <field name="foundationYear">
             <constraint annotation="jakarta.validation.constraints.Min">
-                <message>Минимальное количество вагонов должно быть 1</message>
-                <element name="value">1</element>
+                <message>Год основания не может быть раньше 1800</message>
+                <element name="value">1800</element>
             </constraint>
             <constraint annotation="jakarta.validation.constraints.Max">
-                <message>Максимальное количество вагонов — 50</message>
-                <element name="value">50</element>
+                <message>Год основания не может быть позже текущего года</message>
+                <element name="value">2024</element>
+            </constraint>
+        </field>
+        <field name="universityType">
+            <constraint annotation="jakarta.validation.constraints.NotNull">
+                <message>Тип университета не должен быть пустым</message>
+            </constraint>
+            <constraint annotation="jakarta.validation.constraints.Pattern">
+                <message>Тип университета должен быть: Государственный, Частный или Муниципальный</message>
+                <element name="regexp">^(Государственный|Частный|Муниципальный)$</element>
             </constraint>
         </field>
     </bean>

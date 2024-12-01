@@ -5,11 +5,6 @@
                            http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
        bean-discovery-mode="all">
 
-
-<!--    <alternatives>-->
-<!--        <class>Lab1_CDI.Calculator.SineCosineCalculator</class>-->
-<!--    </alternatives>-->
-
     <decorators>
         <class>Lab2_Decorator.Decorator.PizzaWithCheese</class>
         <class>Lab2_Decorator.Decorator.PizzaWithPepper</class>
