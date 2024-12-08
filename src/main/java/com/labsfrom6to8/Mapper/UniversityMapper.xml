@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.Mapper.UniversityMapper">
+
+    <insert id="insertUniversity" parameterType="com.example.Model.University">
+        INSERT INTO universities (name, location, student_count, is_public)
+        VALUES (#{name}, #{location}, #{studentCount}, #{isPublic})
+    </insert>
+
+    <update id="updateUniversity" parameterType="com.example.Model.University">
+        UPDATE universities
+        SET name = #{name},
+            location = #{location},
+            student_count = #{studentCount},
+            is_public = #{isPublic}
+        WHERE id = #{id}
+    </update>
+
+    <resultMap id="UniversityResultMap" type="com.example.Model.University">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="location" column="location"/>
+        <result property="studentCount" column="student_count"/>
+        <result property="isPublic" column="is_public"/>
+    </resultMap>
+
+    <select id="selectAllUniversities" resultMap="UniversityResultMap">
+        SELECT * FROM universities
+    </select>
+
+    <delete id="deleteUniversity" parameterType="Long">
+        DELETE FROM universities
+        WHERE id = #{id}
+    </delete>
+</mapper>
