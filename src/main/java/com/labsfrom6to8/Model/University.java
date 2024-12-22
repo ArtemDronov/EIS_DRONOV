@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class University {
 
+    @JsonProperty("id")
     private Long id;
 
     @JsonProperty("name")
